@@ -5,7 +5,8 @@ $scope.editing = false
 const popPage = () =>{
   AnimalFact.getAll()
     .then((animals) => {
-      $scope.animals = animals.animals
+      console.log(animals)
+      $scope.animals = animals
       $scope.$apply()
     })
 }
