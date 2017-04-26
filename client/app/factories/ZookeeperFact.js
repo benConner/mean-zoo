@@ -4,7 +4,7 @@ app.factory('ZookeeperFact', function($http){
     return {
     getAll: function() {
         return new Promise((resolve, reject) =>{
-          $http.get(`http://localhost:3000/api/allZookeepers`)
+          $http.get(`http://localhost:3000/api/v1/zookeepers`)
             .then((data) => {
               resolve(data.data)
             })
@@ -12,7 +12,7 @@ app.factory('ZookeeperFact', function($http){
       },
     add: function(newZookeeper) {
       return new Promise((resolve, reject) =>{
-        $http.post(`http://localhost:3000/api/addZookeeper`, newZookeeper)
+        $http.post(`http://localhost:3000/api/v1/zookeeper/new`, newZookeeper)
           .then((data) => {
             resolve(data.data.zookeepers)
           })
@@ -20,7 +20,7 @@ app.factory('ZookeeperFact', function($http){
     },
     delete: function(id) {
       return new Promise((resolve, reject) => {
-        $http.delete(`http://localhost:3000/api/zookeeper/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/zookeeper/delete/${id}`)
           .then((data) => {
             resolve()
           })

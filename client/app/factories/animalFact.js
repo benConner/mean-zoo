@@ -3,15 +3,16 @@ app.factory('AnimalFact', function($http) {
   return {
     getAll: function() {
         return new Promise((resolve, reject) =>{
-          $http.get(`http://localhost:3000/api/allAnimals`)
+          $http.get(`http://localhost:3000/api/v1/animals`)
             .then((data) => {
+              console.log(data)
               resolve(data.data)
             })
         })
       },
     add: function(newAnimal) {
       return new Promise((resolve, reject) =>{
-        $http.post(`http://localhost:3000/api/addAnimal`, newAnimal)
+        $http.post(`http://localhost:3000/api/v1/animals/new`, newAnimal)
           .then((data) => {
             resolve(data)
           })
@@ -20,7 +21,7 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return new Promise((resolve,reject) => {
-        $http.delete(`http://localhost:3000/api/removeAnimal/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/animals/delete/${id}`)
           .then((data) => {
             resolve()
           })
@@ -29,7 +30,7 @@ app.factory('AnimalFact', function($http) {
 
     update: (id, updateInfo) => {
       return new Promise((resolve, reject) => {
-        $http.patch(`http://localhost:3000/api/updateAnimal/${id}`, updateInfo)
+        $http.patch(`http://localhost:3000/api/v1/animals/edit/${id}`, updateInfo)
         .then((data) => {
           resolve()
         })
