@@ -29,7 +29,7 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return new Promise((resolve,reject) => {
-        $http.delete(`http://localhost:3000/api/v1/animals/delete/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/zoo/animalAndKeeper/delete?id=${id}`)
           .then((data) => {
             console.log(data)
             resolve(data)

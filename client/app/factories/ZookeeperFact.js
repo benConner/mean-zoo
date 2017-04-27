@@ -20,7 +20,7 @@ app.factory('ZookeeperFact', function($http){
     },
     delete: function(id) {
       return new Promise((resolve, reject) => {
-        $http.delete(`http://localhost:3000/api/v1/zookeeper/delete/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/zoo/animalAndKeeper/delete?id=${id}`)
           .then((data) => {
             resolve(data.zookeepers)
           })
