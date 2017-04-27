@@ -14,7 +14,7 @@ app.factory('ZookeeperFact', function($http){
       return new Promise((resolve, reject) =>{
         $http.post(`http://localhost:3000/api/v1/zookeeper/new`, newZookeeper)
           .then((data) => {
-            resolve(data.data.zookeepers)
+            resolve(data.zookeepers)
           })
         })
     },
@@ -22,7 +22,7 @@ app.factory('ZookeeperFact', function($http){
       return new Promise((resolve, reject) => {
         $http.delete(`http://localhost:3000/api/v1/zookeeper/delete/${id}`)
           .then((data) => {
-            resolve()
+            resolve(data.zookeepers)
           })
       })
     }

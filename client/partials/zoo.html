@@ -12,7 +12,7 @@
     <span ng-if="animal.zookeepers.length === 0"> 
       no one
     </span>
-    <span ng-repeat="zookeeper in animal.zookeepers">
+    <span ng-repeat="zookeeper in zookeepers">
       {{$last? ' and ' : ''}}{{zookeeper.name}}{{$last? '.' : ', '}}
     </span>
     <div>
