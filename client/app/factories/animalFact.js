@@ -10,6 +10,14 @@ app.factory('AnimalFact', function($http) {
             })
         })
       },
+      getAnimalKeeper: function(id) {
+        return new Promise((resolve, reject) => {
+          $http.get(`http://localhost:3000/api/v1/animal/zookeepers?animalId=${id}`)
+          .then((info) => {
+            resolve(info)
+          })
+        })
+      },
     add: function(newAnimal) {
       return new Promise((resolve, reject) =>{
         $http.post(`http://localhost:3000/api/v1/animals/new`, newAnimal)
@@ -21,9 +29,10 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return new Promise((resolve,reject) => {
-        $http.delete(`http://localhost:3000/api/v1/animals/delete/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/zoo/animalAndKeeper/delete?id=${id}`)
           .then((data) => {
-            resolve()
+            console.log(data)
+            resolve(data)
           })
       })
     },

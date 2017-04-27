@@ -5,15 +5,22 @@ $scope.editing = false
 const popPage = () =>{
   AnimalFact.getAll()
     .then((animals) => {
-      console.log(animals)
+      // console.log(animals)
       $scope.animals = animals
       $scope.$apply()
+
     })
+
+    // AnimalFact.getAnimalKeeper(id)
+    // .then((animalkeeper) => {
+    //   $scope.animalkeeper = animalkeeper
+    // })
 }
 
 popPage()
 
 $scope.remove = (id) => {
+  console.log(id)
   AnimalFact.remove(id)
   .then(() => {
     popPage()

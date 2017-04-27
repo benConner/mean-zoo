@@ -14,15 +14,15 @@ app.factory('ZookeeperFact', function($http){
       return new Promise((resolve, reject) =>{
         $http.post(`http://localhost:3000/api/v1/zookeeper/new`, newZookeeper)
           .then((data) => {
-            resolve(data.data.zookeepers)
+            resolve(data.zookeepers)
           })
         })
     },
     delete: function(id) {
       return new Promise((resolve, reject) => {
-        $http.delete(`http://localhost:3000/api/v1/zookeeper/delete/${id}`)
+        $http.delete(`http://localhost:3000/api/v1/zoo/animalAndKeeper/delete?id=${id}`)
           .then((data) => {
-            resolve()
+            resolve(data.zookeepers)
           })
       })
     }

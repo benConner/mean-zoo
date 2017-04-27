@@ -4,15 +4,20 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact){
   const popPage = () => {
     AnimalFact.getAll()
     .then((animals) => {
-      $scope.animals = animals.animals
+      $scope.animals = animals
       $scope.$apply()
     })
 
     ZookeeperFact.getAll()
     .then((zookeepers) => {
-      $scope.zookeepers = zookeepers.zookeepers;
+      $scope.zookeepers = zookeepers
       $scope.$apply()
     })
+
+    // AnimalInfo.getAnimalKeeper()
+    // .then((animalkeeper) => {
+    //   $scope.animalkeeper = animalkeeper
+    // })
   }
 
   popPage()
@@ -32,10 +37,10 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact){
     }
     console.log("checked zookeepers", selectedzookeepers)
     $scope.newAnimal.zookeepers = selectedzookeepers;
-    AnimalFact.add($scope.newAnimal)
-    .then((data) => {})
-    $scope.newAnimal = {}
-    resetCheckboxes($scope.zookeepers)
+    // AnimalFact.add($scope.newAnimal)
+    // .then((data) => {})
+    // $scope.newAnimal = {}
+    // resetCheckboxes($scope.zookeepers)
   }
 
   $scope.addZookeeper = () => {
